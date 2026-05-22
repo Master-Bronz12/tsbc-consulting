@@ -780,117 +780,237 @@ p {
   color: var(--secondary-light);
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--white);
-    flex-direction: column;
-    padding: 5rem 2rem;
-    gap: 1.5rem;
-    box-shadow: var(--shadow-xl);
-    transition: var(--transition-base);
-    z-index: 999;
-  }
+/* ============================================
+   RESPONSIVE DESIGN - TSBC
+   CONSIGNES RESPECTÉES
+   ============================================ */
 
-  .nav-links.active {
-    right: 0;
-  }
-
-  .nav-links a {
-    color: var(--gray-800);
-  }
-
-  .burger {
-    display: flex;
-    z-index: 1000;
-  }
-
-  .overlay-content h1 {
-    font-size: 1.8rem;
-  }
-
-  .buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-graph-section {
-    flex-direction: column;
-  }
-
-  .testimonial-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
+/* ----- PAR DÉFAUT (Desktop > 1024px) ----- */
+.expertise-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
-@media (max-width: 768px) {
-  .stats-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .expertise-container {
-    grid-template-columns: 1fr;
-  }
-
-  .blog-container {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-section h1 {
-    font-size: 1.8rem;
-  }
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
-@media (max-width: 480px) {
-  .stats-container {
-    grid-template-columns: 1fr;
-  }
-
-  .overlay-content h1 {
-    font-size: 1.5rem;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 0.875rem;
-  }
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-slow);
+/* ===== TABLETTE (768px - 1024px) : 3 colonnes ===== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    .expertise-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    
+    .blog-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    
+    .overlay-content h1 {
+        font-size: 2.5rem !important;
+    }
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ===== MOBILE (max 767px) : 2 colonnes ===== */
+@media screen and (max-width: 767px) {
+    
+    .expertise-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .blog-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Hero section */
+    .overlay-content h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .overlay-content p {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Boutons */
+    .buttons,
+    .cta-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .btn {
+        width: 100% !important;
+        max-width: 220px !important;
+        text-align: center !important;
+    }
+    
+    /* Sections padding */
+    .expertise-section,
+    .blog-section,
+    .about-graph-section,
+    .cta-section {
+        padding: 2rem 5% !important;
+    }
+    
+    /* À propos */
+    .about-graph-section {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .about-left h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .about-left h3 {
+        font-size: 1rem !important;
+    }
+    
+    canvas {
+        max-height: 200px !important;
+    }
+    
+    /* Témoignage */
+    .testimonial-container {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .testimonial-image img {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .testimonial-text .quote {
+        font-size: 0.95rem !important;
+    }
+    
+    /* Stats */
+    .stat-number {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Footer */
+    .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    /* Menu burger */
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: var(--white) !important;
+        flex-direction: column !important;
+        padding: 5rem 2rem !important;
+        gap: 1.5rem !important;
+        transition: 0.3s ease !important;
+        z-index: 999 !important;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .nav-links.active {
+        right: 0 !important;
+    }
+    
+    .burger {
+        display: flex !important;
+        z-index: 1000 !important;
+    }
+}
+
+/* ===== TRÈS PETIT MOBILE (max 480px) ===== */
+@media screen and (max-width: 480px) {
+    
+    .expertise-container,
+    .blog-container,
+    .stats-container {
+        gap: 0.8rem !important;
+    }
+    
+    .overlay-content h1 {
+        font-size: 1.3rem !important;
+    }
+    
+    .expertise-box {
+        padding: 1rem !important;
+    }
+    
+    .expertise-box .icon i {
+        font-size: 1.5rem !important;
+    }
+    
+    .btn {
+        max-width: 180px !important;
+        padding: 8px 16px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* ===== GRAND ÉCRAN (min 1400px) ===== */
+@media screen and (min-width: 1400px) {
+    
+    .expertise-container {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    .blog-container {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    .container {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+    }
 }
