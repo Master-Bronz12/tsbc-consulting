@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSBC - The Society for Business Creativity | Conseil en Gouvernance & Stratégies Financières</title>
+  <meta name="description" content="Mamadou Bakayoko, Expert Consultant en Ingénierie de Gouvernance, Stratégies Financières et Développement. Accompagnement personnalisé pour votre réussite en Côte d'Ivoire." />
+  <meta name="keywords" content="gouvernance, stratégie financière, développement, conseil, Mamadou Bakayoko, TSBC, Côte d'Ivoire" />
+  <meta name="author" content="Mamadou Bakayoko - TSBC" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TSBC - The Society for Business Creativity" />
+  <meta property="og:description" content="Expert Consultant en Ingénierie de Gouvernance, Stratégies Financières & Développement" />
+  <meta property="og:site_name" content="TSBC Consulting" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/67862bc7fc.js" crossorigin="anonymous"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ==================== DÉBUT NAVIGATION ==================== -->
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="TSBC - The Society for Business Creativity" />
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="gouvernance.html">Gouvernance</a></li>
+      <li><a href="finance.html">Finance</a></li>
+      <li><a href="strategie.html">Stratégie</a></li>
+      <li><a href="developpement.html">Développement</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="burger" id="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav>
+</header>
+<!-- ==================== FIN NAVIGATION ==================== -->
+
+<!-- ==================== SECTION HERO VIDÉO ==================== -->
+<section class="hero-video">
+  <video autoplay muted loop class="background-video">
+    <source src="video/hero.mp4" type="video/mp4" />
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+  <div class="overlay-content" data-aos="fade-up">
+    <h1>Ingénierie de Gouvernance &<br>Stratégies Financières</h1>
+        <p>Expertise 360° aux dirigeants et organisations : de la structuration interne à la croissance externe. Spécialiste de la transformation organisationnelle, je combine ingénierie de gouvernance et ingénierie financière.</p>
+    <div class="buttons">
+      <a href="devis.html" class="btn">Demander un devis</a>
+      <a href="contact.html" class="btn btn-outline">Contactez-nous</a>
+    </div>
+  </div>
+</section>
+<!-- ==================== FIN HERO ==================== -->
+
+<!-- ==================== SECTION À PROPOS ==================== -->
+<section id="about" class="about-graph-section">
+  <div class="about-left" data-aos="fade-right">
+    <span class="section-tag">Qui suis-je ?</span>
+    <h1>Mamadou Bakayoko</h1>
+    <h3>Expert Consultant en Ingénierie de Gouvernance, Stratégies Financières & Développement</h3>
+    <p>Fort de plus de 15 ans d'expérience dans le conseil aux organisations publiques et privées, j'accompagne les dirigeants dans la transformation de leurs structures. Ma double compétence en gouvernance et finance me permet d'apporter une vision globale et intégrée.</p>
+    <a href="apropos.html" class="btn">Découvrir mon parcours</a>
+  </div>
+
+  <div class="about-right" data-aos="fade-left">
+    <canvas id="financeChart"></canvas>
+  </div>
+</section>
+<!-- ==================== FIN À PROPOS ==================== -->
+
+<!-- ==================== SECTION EXPERTISES ==================== -->
+<section class="expertise-section">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-tag">Mes domaines d'expertise</span>
+    <h2>Des compétences pointues au service de votre réussite</h2>
+    <p>Je vous accompagne avec une approche sur mesure, alliant rigueur académique et pragmatisme opérationnel.</p>
+  </div>
+  
+  <div class="expertise-container">
+    <div class="expertise-box" data-aos="fade-up" data-aos-delay="100">
+      <div class="icon">
+        <i class="fa-solid fa-building"></i>
+      </div>
+      <h3>Ingénierie de Gouvernance</h3>
+      <p>Conception et mise en place de dispositifs de gouvernance performants, transparents et adaptés à votre organisation.</p>
+      <a href="gouvernance.html">En savoir plus →</a>
+    </div>
+
+    <div class="expertise-box" data-aos="fade-up" data-aos-delay="200">
+      <div class="icon">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+      <h3>Stratégies Financières</h3>
+      <p>Optimisation de votre structure financière et accompagnement dans vos décisions d'investissement et de financement.</p>
+      <a href="finance.html">En savoir plus →</a>
+    </div>
+
+    <div class="expertise-box" data-aos="fade-up" data-aos-delay="300">
+      <div class="icon">
+        <i class="fa-solid fa-chalkboard-user"></i>
+      </div>
+      <h3>Conseil Stratégique</h3>
+      <p>Accompagnement sur mesure pour définir et déployer votre stratégie de croissance et de transformation.</p>
+      <a href="strategie.html">En savoir plus →</a>
+    </div>
+
+    <div class="expertise-box" data-aos="fade-up" data-aos-delay="400">
+      <div class="icon">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <h3>Développement & Impact</h3>
+      <p>Stratégies de développement durable et création de valeur partagée pour un impact positif.</p>
+      <a href="developpement.html">En savoir plus →</a>
+    </div>
+  </div>
+</section>
+<!-- ==================== FIN EXPERTISES ==================== -->
+
+<!-- ==================== SECTION CHIFFRES CLÉS ==================== -->
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+      <span class="stat-number">15+</span>
+      <span class="stat-label">Années d'expertise</span>
+    </div>
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+      <span class="stat-number">50+</span>
+      <span class="stat-label">Projets accompagnés</span>
+    </div>
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+      <span class="stat-number">100%</span>
+      <span class="stat-label">Satisfaction client</span>
+    </div>
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="400">
+      <span class="stat-number">24h</span>
+      <span class="stat-label">Délai de réponse</span>
+    </div>
+  </div>
+</section>
+<!-- ==================== FIN CHIFFRES CLÉS ==================== -->
+
+<!-- ==================== SECTION TÉMOIGNAGE ==================== -->
+<section class="testimonial-section">
+  <div class="testimonial-container">
+    <div class="testimonial-image" data-aos="fade-right">
+      <img src="images/Mabak.jpg" alt="Mamadou Bakayoko - Expert Consultant">
+    </div>
+    <div class="testimonial-text" data-aos="fade-left">
+      <i class="fa-solid fa-quote-left quote-icon"></i>
+      <p class="quote">"Mamadou Bakayoko a su comprendre nos enjeux et nous accompagner avec pragmatisme et efficacité. Sa double compétence gouvernance-finance nous a permis d'avoir une vision globale et d'optimiser nos processus."</p>
+      <h4>Jean-Marc Kouadio</h4>
+      <p class="position">Directeur Général – Groupe Alpha</p>
+    </div>
+  </div>
+</section>
+<!-- ==================== FIN TÉMOIGNAGE ==================== -->
+
+<!-- ==================== SECTION BLOG ==================== -->
+<section class="blog-section">
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-tag">Actualités & Réflexions</span>
+    <h2>Articles récents</h2>
+    <p>Découvrez mes analyses sur la gouvernance, la finance et le développement.</p>
+  </div>
+  
+  <div class="blog-container">
+    <div class="blog-card fade-in" data-aos="fade-up" data-aos-delay="100">
+      <img src="images/MS-1.png" alt="Gouvernance moderne">
+      <div class="blog-content">
+        <h3>Les clés d'une gouvernance moderne et efficace</h3>
+        <p class="date">Publié le 15 mai 2026</p>
+        <p>Découvrez comment repenser votre gouvernance pour relever les défis actuels et construire une organisation résiliente...</p>
+        <a href="blog-gouvernance.html">Lire la suite →</a>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in" data-aos="fade-up" data-aos-delay="200">
+      <img src="images/strategie-financiere.jpg" alt="Stratégie financière">
+      <div class="blog-content">
+        <h3>Optimiser sa stratégie financière en période d'incertitude</h3>
+        <p class="date">Publié le 2 mai 2026</p>
+        <p>Les bonnes pratiques pour sécuriser et développer votre entreprise face aux défis économiques actuels...</p>
+        <a href="blog-finance.html">Lire la suite →</a>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in" data-aos="fade-up" data-aos-delay="300">
+      <img src="images/odd-roue-1.png" alt="Développement durable">
+      <div class="blog-content">
+        <h3>L'impact comme levier de performance</h3>
+        <p class="date">Publié le 24 avril 2026</p>
+        <p>Comment intégrer l'impact social et environnemental dans votre stratégie pour créer de la valeur durable...</p>
+        <a href="blog-impact.html">Lire la suite →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-cta">
+    <a href="blog.html" class="btn btn-outline-dark">Voir tous les articles</a>
+  </div>
+</section>
+<!-- ==================== FIN BLOG ==================== -->
+
+<!-- ==================== SECTION CTA ==================== -->
+<section class="cta-section fade-in">
+  <div class="cta-content" data-aos="fade-up">
+    <h1>Prêt à transformer votre organisation ?</h1>
+    <p>Discutons de vos enjeux et construisons ensemble la solution qui vous ressemble.</p>
+    <div class="cta-buttons">
+      <a href="devis.html" class="btn btn-primary">Demander un devis gratuit</a>
+      <a href="tel:+2250707363020" class="btn btn-secondary">
+        <i class="fa-solid fa-phone"></i> +225 07 07 36 30 20
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ==================== FIN CTA ==================== -->
+
+<section class="legal-badge" style="background: #f8f9fa; padding: 1rem; text-align: center; font-size: 0.8rem; color: #666;">
+    <p>SARL au capital de 1 000 000 FCFA - RCCM: CI-ABJ-2015-B-9521 - IDU: CI-2015-0000729 E</p>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Colonne 1 : Logo & intro -->
+    <div class="footer-col">
+      <h2 class="footer-logo">TSBC</h2>
+      <p class="footer-subtitle">The Society for Business Creativity</p>
+      <p>Conseil en gouvernance et stratégies financières pour bâtir l'avenir avec confiance et innovation.</p>
+      <form class="newsletter-form">
+        <label for="newsletter-email">Newsletter</label>
+        <input type="email" id="newsletter-email" placeholder="Votre adresse email">
+        <button type="submit">S'abonner</button>
+      </form>
+    </div>
+
+    <!-- Colonne 2 : Liens utiles -->
+    <div class="footer-col">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="gouvernance.html">Gouvernance</a></li>
+        <li><a href="finance.html">Finance</a></li>
+        <li><a href="strategie.html">Stratégie</a></li>
+        <li><a href="developpement.html">Développement</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Colonne 3 : Légal -->
+    <div class="footer-col">
+      <h3>Légal</h3>
+      <ul>
+        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="conditions.html">Conditions d'utilisation</a></li>
+      </ul>
+    </div>
+
+    <!-- Colonne 4 : Contact -->
+    <div class="footer-col">
+    <h3>Contact</h3>
+    <p><i class="fa-solid fa-envelope"></i> bakayoko.mamadou@rocketmail.com</p>
+    <p><i class="fa-solid fa-envelope"></i> tsbcafrique@yahoo.fr</p>
+    <p><i class="fa-solid fa-phone"></i> +225 07 07 36 30 20</p>
+    <p><i class="fa-solid fa-location-dot"></i> Abidjan Cocody Angré, Côte d'Ivoire</p>
+    <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+</div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 TSBC - The Society for Business Creativity. Tous droits réservés.</p>
+    <p>Mamadou Bakayoko - Expert Consultant</p>
+    <a href="#top" class="back-to-top">⬆ Retour en haut</a>
+  </div>
+</footer>
+<!-- ==================== FIN FOOTER ==================== -->
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/script.js"></script>
+
+<!-- Initialisation AOS -->
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+</script>
+</body>
+</html>
+
+
+
+
