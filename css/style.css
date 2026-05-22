@@ -782,35 +782,33 @@ p {
 
 /* ============================================
    RESPONSIVE DESIGN - TSBC
-   CONSIGNES RESPECTÉES
+   Version corrigée - Ne casse pas les petits écrans
    ============================================ */
 
 /* ----- PAR DÉFAUT (Desktop > 1024px) ----- */
-.expertise-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+@media screen and (min-width: 1025px) {
+    .expertise-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    
+    .blog-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
 }
 
-.blog-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-}
-
-/* ===== TABLETTE (768px - 1024px) : 3 colonnes ===== */
+/* ----- TABLETTE (768px - 1024px) : 3 colonnes ----- */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     
     .expertise-container {
@@ -836,9 +834,14 @@ p {
     .overlay-content h1 {
         font-size: 2.5rem !important;
     }
+    
+    .expertise-section,
+    .blog-section {
+        padding: 3rem 5% !important;
+    }
 }
 
-/* ===== MOBILE (max 767px) : 2 colonnes ===== */
+/* ----- MOBILE (max 767px) : 2 colonnes ----- */
 @media screen and (max-width: 767px) {
     
     .expertise-container {
@@ -881,6 +884,7 @@ p {
         width: 100% !important;
         max-width: 220px !important;
         text-align: center !important;
+        justify-content: center !important;
     }
     
     /* Sections padding */
@@ -903,6 +907,10 @@ p {
     
     .about-left h3 {
         font-size: 1rem !important;
+    }
+    
+    .about-left p {
+        font-size: 0.95rem !important;
     }
     
     canvas {
@@ -929,11 +937,24 @@ p {
         font-size: 1.5rem !important;
     }
     
+    .stat-label {
+        font-size: 0.8rem !important;
+    }
+    
     /* Footer */
     .footer-bottom {
         flex-direction: column !important;
         text-align: center !important;
         gap: 0.5rem !important;
+    }
+    
+    .footer-col h3 {
+        font-size: 1rem !important;
+    }
+    
+    .footer-col p,
+    .footer-col a {
+        font-size: 0.85rem !important;
     }
     
     /* Menu burger */
@@ -960,9 +981,18 @@ p {
         display: flex !important;
         z-index: 1000 !important;
     }
+    
+    /* Section header */
+    .section-header h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .section-header p {
+        font-size: 0.85rem !important;
+    }
 }
 
-/* ===== TRÈS PETIT MOBILE (max 480px) ===== */
+/* ===== TRÈS PETIT MOBILE (max 480px) : reste 2 colonnes ===== */
 @media screen and (max-width: 480px) {
     
     .expertise-container,
@@ -975,12 +1005,24 @@ p {
         font-size: 1.3rem !important;
     }
     
+    .overlay-content p {
+        font-size: 0.85rem !important;
+    }
+    
     .expertise-box {
         padding: 1rem !important;
     }
     
     .expertise-box .icon i {
         font-size: 1.5rem !important;
+    }
+    
+    .expertise-box h3 {
+        font-size: 0.95rem !important;
+    }
+    
+    .expertise-box p {
+        font-size: 0.8rem !important;
     }
     
     .btn {
@@ -1013,7 +1055,12 @@ p {
         max-width: 1400px !important;
         margin: 0 auto !important;
     }
+    
+    .overlay-content h1 {
+        font-size: 3.5rem !important;
+    }
 }
+
 /* ===== OPTIMISATIONS PERFORMANCES ===== */
 img {
     max-width: 100%;
