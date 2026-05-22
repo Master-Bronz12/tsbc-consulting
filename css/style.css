@@ -1210,3 +1210,65 @@ video {
     }
 }
 
+
+
+
+/* ===== MENU BURGER CORRIGÉ - TOUTES LES PAGES ===== */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.burger .line {
+    width: 25px;
+    height: 3px;
+    background: var(--primary, #1a365d);
+    margin: 3px 0;
+    transition: 0.3s ease;
+}
+
+.burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Menu mobile */
+@media screen and (max-width: 767px) {
+    .burger {
+        display: flex !important;
+    }
+    
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: var(--white, #ffffff) !important;
+        flex-direction: column !important;
+        padding: 5rem 2rem !important;
+        gap: 1.5rem !important;
+        transition: 0.3s ease !important;
+        z-index: 999 !important;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .nav-links.active {
+        right: 0 !important;
+    }
+    
+    .nav-links a {
+        color: var(--gray-800, #2d3748) !important;
+        font-size: 1.1rem !important;
+    }
+}
+
