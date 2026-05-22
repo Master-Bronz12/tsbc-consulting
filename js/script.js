@@ -137,3 +137,35 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ TSBC - Site chargé avec succès !');
 });
 
+
+
+
+// ===== GESTION VIDÉO POUR MOBILE =====
+function handleMobileVideo() {
+    const video = document.querySelector('.background-video');
+    const heroSection = document.querySelector('.hero-video');
+    
+    if (window.innerWidth <= 768) {
+        if (video) {
+            video.pause();
+            video.style.display = 'none';
+        }
+        if (heroSection) {
+            heroSection.style.background = 'linear-gradient(135deg, #1a365d, #0f2b4f)';
+        }
+    } else {
+        if (video) {
+            video.style.display = 'block';
+            video.play().catch(function(e) {
+                console.log('Autoplay bloqué:', e);
+            });
+        }
+    }
+}
+
+// Exécuter au chargement
+handleMobileVideo();
+
+// Exécuter au redimensionnement
+window.addEventListener('resize', handleMobileVideo);
+

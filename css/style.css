@@ -1873,3 +1873,76 @@ video {
     }
 }
 
+
+
+
+/* ===== VIDÉO HERO RESPONSIVE ===== */
+.hero-video {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Image de fallback pour mobile (si vidéo ne charge pas) */
+.hero-video .fallback-image {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* MOBILE : remplacer vidéo par image fixe */
+@media screen and (max-width: 768px) {
+    .background-video {
+        display: none !important;
+    }
+    
+    .hero-video {
+        background: linear-gradient(135deg, #1a365d, #0f2b4f);
+    }
+    
+    .hero-video::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../images/hero-bg-mobile.jpg') center/cover no-repeat;
+        opacity: 0.3;
+        z-index: -1;
+    }
+}
+
+/* Tablette : garder la vidéo mais plus petite */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .hero-video {
+        height: 70vh;
+    }
+    
+    .overlay-content h1 {
+        font-size: 2rem !important;
+    }
+}
+
+/* Desktop : vidéo pleine taille */
+@media screen and (min-width: 1025px) {
+    .background-video {
+        display: block !important;
+    }
+}
+
