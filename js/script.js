@@ -169,3 +169,34 @@ handleMobileVideo();
 // Exécuter au redimensionnement
 window.addEventListener('resize', handleMobileVideo);
 
+
+
+
+// ===== FORCER LA LECTURE VIDÉO SUR MOBILE =====
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.background-video');
+    
+    if (video) {
+        // S'assurer que la vidéo se lance sur mobile
+        const playVideo = function() {
+            video.play().catch(function(e) {
+                console.log('Vidéo en attente d\'interaction...');
+                // Déclencher après le premier tap
+                document.body.addEventListener('touchstart', function() {
+                    video.play();
+                }, { once: true });
+            });
+        };
+        
+        // Attendre un peu puis lancer
+        setTimeout(playVideo, 100);
+        
+        // Gérer la visibilité de la page (quand on revient)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden && video.paused) {
+                video.play();
+            }
+        });
+    }
+});
+

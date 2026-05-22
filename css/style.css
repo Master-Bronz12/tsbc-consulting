@@ -1876,7 +1876,8 @@ video {
 
 
 
-/* ===== VIDÉO HERO RESPONSIVE ===== */
+
+/* ===== VIDÉO HERO RESPONSIVE - TOUS APPAREILS ===== */
 .hero-video {
     position: relative;
     height: 100vh;
@@ -1893,6 +1894,53 @@ video {
     object-fit: cover;
 }
 
+/* Forcer l'affichage sur mobile */
+@media screen and (max-width: 768px) {
+    .hero-video {
+        height: 50vh !important;
+        min-height: 400px !important;
+    }
+    
+    .background-video {
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    .overlay-content h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .overlay-content p {
+        font-size: 0.85rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    .btn {
+        padding: 8px 20px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .hero-video {
+        height: 60vh !important;
+    }
+    
+    .overlay-content h1 {
+        font-size: 2rem !important;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .hero-video {
+        height: 100vh !important;
+    }
+    
+    .overlay-content h1 {
+        font-size: 3rem !important;
+    }
+}
 /* Image de fallback pour mobile (si vidéo ne charge pas) */
 .hero-video .fallback-image {
     display: none;
@@ -1945,4 +1993,5 @@ video {
         display: block !important;
     }
 }
+
 
