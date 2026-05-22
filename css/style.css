@@ -1014,3 +1014,22 @@ p {
         margin: 0 auto !important;
     }
 }
+/* ===== OPTIMISATIONS PERFORMANCES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Réduire les animations pour ceux qui préfèrent */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
