@@ -3,66 +3,54 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demande de devis - TSBC</title>
-    <meta name="description" content="Demandez un devis personnalisé pour votre projet." />
+    <title>Demande de Devis - TSBC | Devis Personnalisé en 24h</title>
+    <meta name="description" content="Obtenez un devis personnalisé pour votre projet de gouvernance, stratégie financière ou développement. Réponse sous 24h." />
     <meta name="author" content="Mamadou Bakayoko" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="TSBC - The Society for Business Creativity" />
+    <meta property="og:description" content="Mamadou Bakayoko - Expert Consultant en Ingénierie de Gouvernance, Stratégies Financières et Développement" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tsbc-consulting.onrender.com" />
+    <meta property="og:image" content="https://tsbc-consulting.onrender.com/images/logo.png" />
+    <meta property="og:site_name" content="TSBC Consulting" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TSBC - The Society for Business Creativity" />
+    <meta name="twitter:description" content="Expert Consultant en Ingénierie de Gouvernance, Stratégies Financières et Développement" />
+    <meta name="twitter:image" content="https://tsbc-consulting.onrender.com/images/logo.png" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/67862bc7fc.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<header>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="images/logo.png" alt="TSBC - The Society for Business Creativity" />
-    </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active">Accueil</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="gouvernance.html">Gouvernance</a></li>
-      <li><a href="finance.html">Finance</a></li>
-      <li><a href="strategie.html">Stratégie</a></li>
-      <li><a href="developpement.html">Développement</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="burger" id="burger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  </nav>
-</header>
-
-<!-- CONTENU SPÉCIFIQUE DE LA PAGE -->
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Devis - TSBC - The Society for Business Creativity</title>
-    <meta name="description" content="Obtenez un devis personnalisé en 24h">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <script src="https://kit.fontawesome.com/67862bc7fc.js" crossorigin="anonymous"></script>
-</head>
-
-<!-- Navigation -->
+<!-- ==================== NAVIGATION ==================== -->
 <header>
     <nav class="navbar">
         <div class="logo">
-            <img src="images/logo.png" alt="Logo TSBC - The Society for Business Creativity" />
+            <img src="images/logo.png" alt="TSBC - The Society for Business Creativity" />
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="apropos.html">À propos</a></li>
+            <li><a href="gouvernance.html">Gouvernance</a></li>
             <li><a href="finance.html">Finance</a></li>
             <li><a href="strategie.html">Stratégie</a></li>
-            <li><a href="strategie.html">Entrepreneuriat</a></li>
             <li><a href="developpement.html">Développement</a></li>
             <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="burger" id="burger">
             <div class="line"></div>
@@ -71,28 +59,34 @@
         </div>
     </nav>
 </header>
+<!-- ==================== FIN NAVIGATION ==================== -->
 
-<!-- Page Hero -->
+<!-- ==================== PAGE HERO ==================== -->
 <section class="page-hero">
-    <div class="page-hero-content">
+    <div class="page-hero-content" data-aos="fade-up">
         <h1>Demande de Devis</h1>
         <p>Obtenez un devis personnalisé en 24h</p>
     </div>
 </section>
+<!-- ==================== FIN HERO ==================== -->
 
-<!-- Contenu principal -->
+<!-- ==================== CONTENU PRINCIPAL ==================== -->
 <section class="page-content">
     <div class="container">
-        <div class="devis-intro">
+        
+        <!-- Introduction -->
+        <div class="devis-intro" data-aos="fade-up">
             <h2>Demande de Devis Personnalisé</h2>
             <p>Remplissez le formulaire ci-dessous et nous vous ferons parvenir un devis adapté à vos besoins dans les 24h.</p>
         </div>
 
-        <div class="devis-form-container">
-            <form id="devisForm">
+        <!-- Formulaire de devis -->
+        <div class="devis-form-container" data-aos="fade-up">
+            <form id="devisForm" action="#" method="POST">
                 <div class="form-group">
-                    <label>Type d'entreprise</label>
-                    <select required>
+                    <label>Type d'entreprise *</label>
+                    <select name="type_entreprise" required>
+                        <option value="">Sélectionnez</option>
                         <option>Startup (moins de 3 ans)</option>
                         <option>PME</option>
                         <option>Grande Entreprise</option>
@@ -101,8 +95,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Service souhaité</label>
-                    <select required>
+                    <label>Service souhaité *</label>
+                    <select name="service" required>
+                        <option value="">Sélectionnez</option>
                         <option>Expertise Financière</option>
                         <option>Conseil Stratégique</option>
                         <option>Accompagnement Entrepreneuriat</option>
@@ -112,28 +107,29 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Nom complet</label>
-                    <input type="text" placeholder="Votre nom et prénom" required>
+                    <label>Nom complet *</label>
+                    <input type="text" name="nom" placeholder="Votre nom et prénom" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Email professionnel</label>
-                    <input type="email" placeholder="email@entreprise.com" required>
+                    <label>Email professionnel *</label>
+                    <input type="email" name="email" placeholder="email@entreprise.com" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Téléphone</label>
-                    <input type="tel" placeholder="+225 XX XX XX XX" required>
+                    <label>Téléphone *</label>
+                    <input type="tel" name="telephone" placeholder="+225 XX XX XX XX" required>
                 </div>
 
                 <div class="form-group">
                     <label>Nom de l'entreprise</label>
-                    <input type="text" placeholder="Nom de votre structure">
+                    <input type="text" name="entreprise" placeholder="Nom de votre structure">
                 </div>
 
                 <div class="form-group">
                     <label>Budget prévisionnel (FCFA)</label>
-                    <select>
+                    <select name="budget">
+                        <option value="">Sélectionnez</option>
                         <option>Moins de 500 000 FCFA</option>
                         <option>500 000 - 1 000 000 FCFA</option>
                         <option>1 000 000 - 5 000 000 FCFA</option>
@@ -142,70 +138,60 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Description du projet</label>
-                    <textarea rows="5" placeholder="Décrivez brièvement votre besoin..." required></textarea>
+                    <label>Description du projet *</label>
+                    <textarea name="description" rows="5" placeholder="Décrivez brièvement votre besoin..." required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Date souhaitée pour le début de l'accompagnement</label>
-                    <input type="date">
+                    <input type="date" name="date_debut">
                 </div>
 
                 <button type="submit" class="btn">Envoyer la demande de devis</button>
             </form>
         </div>
 
-        <div class="devis-note">
+        <!-- Note -->
+        <div class="devis-note" data-aos="fade-up">
             <i class="fa-solid fa-clock"></i>
             <p>Nos équipes s'engagent à vous répondre sous 24h ouvrées avec une proposition personnalisée.</p>
         </div>
+        
     </div>
 </section>
+<!-- ==================== FIN CONTENU ==================== -->
 
-<style>
-.page-hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; padding: 150px 5% 80px; text-align: center; }
-.page-content { padding: 5rem 5%; }
-.devis-intro { text-align: center; margin-bottom: 3rem; }
-.devis-form-container { max-width: 700px; margin: 0 auto; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-.form-group { margin-bottom: 1.5rem; }
-.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #333; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
-.devis-note { background: #f0f9ff; padding: 1.5rem; border-radius: 10px; margin-top: 2rem; text-align: center; display: flex; align-items: center; justify-content: center; gap: 1rem; }
-.devis-note i { font-size: 2rem; color: #3b82f6; }
-</style>
-
-<script>
-document.getElementById('devisForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('✅ Demande de devis envoyée ! Notre équipe vous contactera sous 24h.');
-    this.reset();
-});
-</script>
-
-<!-- Footer -->
+<!-- ==================== FOOTER ==================== -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-col">
-            <h2 class="footer-logo">TSBC - The Society for Business Creativity</h2>
-            <p>Conseil stratégique pour bâtir l'avenir avec confiance et innovation.</p>
-            <form class="newsletter-form">
+            <h2 class="footer-logo">TSBC</h2>
+            <p class="footer-subtitle">The Society for Business Creativity</p>
+            <p>Conseil en gouvernance et stratégies financières pour bâtir l'avenir avec confiance et innovation.</p>
+            <form class="newsletter-form" action="#" method="POST">
                 <label for="newsletter-email">Newsletter</label>
-                <input type="email" id="newsletter-email" placeholder="Votre adresse email">
-                <button type="submit">S'abonner</button>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <input type="email" name="email" id="newsletter-email" placeholder="Votre adresse email" required style="flex: 1; padding: 10px; border-radius: 8px; border: none;">
+                    <button type="submit" style="padding: 10px 20px;">S'abonner</button>
+                </div>
+                <small style="font-size: 0.7rem; opacity: 0.7;">Je ne spamme pas ! Je respecte votre vie privée.</small>
             </form>
         </div>
+
         <div class="footer-col">
             <h3>Navigation</h3>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="apropos.html">À propos</a></li>
+                <li><a href="gouvernance.html">Gouvernance</a></li>
                 <li><a href="finance.html">Finance</a></li>
                 <li><a href="strategie.html">Stratégie</a></li>
-                <li><a href="strategie.html">Entrepreneuriat</a></li>
                 <li><a href="developpement.html">Développement</a></li>
                 <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
+
         <div class="footer-col">
             <h3>Légal</h3>
             <ul>
@@ -214,95 +200,42 @@ document.getElementById('devisForm')?.addEventListener('submit', function(e) {
                 <li><a href="conditions.html">Conditions d'utilisation</a></li>
             </ul>
         </div>
+
         <div class="footer-col">
-    <h3>Contact</h3>
-    <p><i class="fa-solid fa-envelope"></i> bakayoko.mamadou@rocketmail.com</p>
-    <p><i class="fa-solid fa-envelope"></i> tsbcafrique@yahoo.fr</p>
-    <p><i class="fa-solid fa-phone"></i> +225 07 07 36 30 20</p>
-    <p><i class="fa-solid fa-location-dot"></i> Abidjan Cocody Angré, Côte d'Ivoire</p>
-    <div class="footer-socials">
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-    </div>
-</div>
+            <h3>Contact</h3>
+            <p><i class="fa-solid fa-envelope"></i> tsbcafrique@yahoo.fr</p>
+            <p><i class="fa-solid fa-phone"></i> +225 07 07 36 30 20</p>
+            <p><i class="fa-solid fa-location-dot"></i> Abidjan Cocody Angré, Côte d'Ivoire</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
         </div>
     </div>
+
     <div class="footer-bottom">
-        <p>&copy; 2025 TSBC - The Society for Business Creativity. Tous droits réservés.</p>
+        <p>&copy; 2026 TSBC - The Society for Business Creativity. Tous droits réservés.</p>
+        <p>Mamadou Bakayoko - Expert Consultant</p>
         <a href="#top" class="back-to-top">⬆ Retour en haut</a>
     </div>
 </footer>
+<!-- ==================== FIN FOOTER ==================== -->
 
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Colonne 1 : Logo & intro -->
-    <div class="footer-col">
-      <h2 class="footer-logo">TSBC</h2>
-      <p class="footer-subtitle">The Society for Business Creativity</p>
-      <p>Conseil en gouvernance et stratégies financières pour bâtir l'avenir avec confiance et innovation.</p>
-      <form class="newsletter-form">
-        <label for="newsletter-email">Newsletter</label>
-        <input type="email" id="newsletter-email" placeholder="Votre adresse email">
-        <button type="submit">S'abonner</button>
-      </form>
-    </div>
-
-    <!-- Colonne 2 : Liens utiles -->
-    <div class="footer-col">
-      <h3>Navigation</h3>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="apropos.html">À propos</a></li>
-        <li><a href="gouvernance.html">Gouvernance</a></li>
-        <li><a href="finance.html">Finance</a></li>
-        <li><a href="strategie.html">Stratégie</a></li>
-        <li><a href="developpement.html">Développement</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Colonne 3 : Légal -->
-    <div class="footer-col">
-      <h3>Légal</h3>
-      <ul>
-        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
-        <li><a href="mentions-legales.html">Mentions légales</a></li>
-        <li><a href="conditions.html">Conditions d'utilisation</a></li>
-      </ul>
-    </div>
-
-    <!-- Colonne 4 : Contact -->
-    <div class="footer-col">
-    <h3>Contact</h3>
-    <p><i class="fa-solid fa-envelope"></i> bakayoko.mamadou@rocketmail.com</p>
-    <p><i class="fa-solid fa-envelope"></i> tsbcafrique@yahoo.fr</p>
-    <p><i class="fa-solid fa-phone"></i> +225 07 07 36 30 20</p>
-    <p><i class="fa-solid fa-location-dot"></i> Abidjan Cocody Angré, Côte d'Ivoire</p>
-    <div class="footer-socials">
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-    </div>
-</div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2026 TSBC - The Society for Business Creativity. Tous droits réservés.</p>
-    <p>Mamadou Bakayoko - Expert Consultant</p>
-    <a href="#top" class="back-to-top">⬆ Retour en haut</a>
-  </div>
-</footer>
-
+<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/script.js"></script>
 <script>
     AOS.init({ duration: 800, once: true, offset: 100 });
+    
+    // Formulaire de devis
+    document.getElementById('devisForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('✅ Demande de devis envoyée ! Notre équipe vous contactera sous 24h.');
+        this.reset();
+    });
 </script>
+
 </body>
 </html>
-

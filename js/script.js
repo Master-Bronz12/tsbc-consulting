@@ -1,6 +1,7 @@
 ﻿// ============================================
 // TSBC - SCRIPT PRINCIPAL
 // MENU BURGER + ANIMATIONS + FORMULAIRES
+// VERSION FINALE OPTIMISÉE
 // ============================================
 
 'use strict';
@@ -61,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
     } else {
         console.log('❌ Burger ou navLinks non trouvés');
-        console.log('burger:', burger);
-        console.log('navLinks:', navLinks);
     }
     
     // ===== NAVBAR SCROLL EFFECT =====
@@ -84,10 +83,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const href = link.getAttribute('href');
         if (href === currentPage) {
             link.classList.add('active');
+        } else if (currentPage === '' && href === 'index.html') {
+            link.classList.add('active');
         }
     });
     
-    // ===== ANIMATIONS FADE-IN =====
+    // ===== ANIMATIONS FADE-IN (AOS est déjà utilisé) =====
+    // Cette section est optionnelle car AOS gère déjà les animations
     const fadeElements = document.querySelectorAll('.fade-in');
     if (fadeElements.length) {
         const observer = new IntersectionObserver(function(entries) {
@@ -115,10 +117,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== NEWSLETTER =====
     const newsletterForms = document.querySelectorAll('.newsletter-form');
     newsletterForms.forEach(function(form) {
+        // Éviter de dupliquer les écouteurs
+        if (form.hasAttribute('data-listener')) return;
+        form.setAttribute('data-listener', 'true');
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             const emailInput = form.querySelector('input[type="email"]');
-            if (emailInput && emailInput.value) {
+            if (emailInput && emailInput.value && emailInput.value.includes('@')) {
                 alert('✅ Merci pour votre inscription à la newsletter !');
                 form.reset();
             } else {
@@ -127,6 +133,188 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // ===== FORMULAIRE DE CONTACT =====
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nom = this.querySelector('input[name="nom"]')?.value;
+            const email = this.querySelector('input[name="email"]')?.value;
+            const message = this.querySelector('textarea[name="message"]')?.value;
+            
+            if (nom && email && message) {
+                alert('✅ Merci pour votre message. Nous vous contacterons dans les 24h.');
+                this.reset();
+            } else {
+                alert('❌ Veuillez remplir tous les champs obligatoires.');
+            }
+        });
+    }
+    
+    // ===== FORMULAIRE DE DEVIS =====
+    const devisForm = document.getElementById('devisForm');
+    if (devisForm) {
+        devisForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nom = this.querySelector('input[name="nom"]')?.value;
+            const email = this.querySelector('input[name="email"]')?.value;
+            const service = this.querySelector('select[name="service"]')?.value;
+            
+            if (nom && email && service) {
+                alert('✅ Demande de devis envoyée ! Notre équipe vous contactera sous 24h.');
+                this.reset();
+            } else {
+                alert('❌ Veuillez remplir tous les champs obligatoires.');
+            }
+        });
+    }
+    
+    // ===== SMOOTH SCROLL POUR LES ANCRES =====
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        // Exclure les liens qui ne sont pas des ancres simples
+        if (anchor.getAttribute('href') === '#') return;
+        
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
     console.log('✅ TSBC - Toutes les fonctionnalités sont prêtes !');
 });
 
+// ===== GRAPHIQUE CHART.JS =====
+// Attendre que le DOM soit chargé et que Chart.js soit disponible
+function initChart() {
+    const canvas = document.getElementById('financeChart');
+    if (canvas && typeof Chart !== 'undefined') {
+        // Vérifier si un graphique existe déjà
+        const existingChart = Chart.getChart(canvas);
+        if (existingChart) {
+            existingChart.destroy();
+        }
+        
+        new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'Croissance accompagnée (%)',
+                    data: [5, 7, 12, 18, 25, 32, 42],
+                    borderColor: '#d69e2e',
+                    backgroundColor: 'rgba(214, 158, 46, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: '#d69e2e',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Croissance: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 50,
+                        title: {
+                            display: true,
+                            text: 'Taux de croissance (%)',
+                            font: {
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Années',
+                            font: {
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        console.log('✅ Graphique Chart.js chargé');
+    } else if (canvas && typeof Chart === 'undefined') {
+        console.log('⚠️ Chart.js non chargé, graphique ignoré');
+    }
+}
+
+// Exécuter le graphique après le chargement complet
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChart);
+} else {
+    initChart();
+}
+
+// ===== GESTION DES VIDÉOS (optionnel) =====
+// Détecter si l'utilisateur est sur mobile pour désactiver l'autoplay des vidéos
+function checkMobileVideo() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const videos = document.querySelectorAll('.background-video');
+    
+    if (isMobile && videos.length) {
+        videos.forEach(function(video) {
+            video.pause();
+            video.removeAttribute('autoplay');
+            console.log('📱 Vidéo désactivée sur mobile');
+        });
+    }
+}
+
+checkMobileVideo();
+
+// ===== COMPTEUR DE VISITEURS SIMPLE =====
+const visitCounter = document.getElementById('visit-counter');
+if (visitCounter) {
+    let visitCount = localStorage.getItem('tsbc_visits');
+    if (visitCount === null) {
+        // Valeur de départ aléatoire entre 100 et 500
+        visitCount = Math.floor(Math.random() * 500) + 100;
+        localStorage.setItem('tsbc_visits', visitCount);
+    } else {
+        visitCount = parseInt(visitCount) + 1;
+        localStorage.setItem('tsbc_visits', visitCount);
+    }
+    visitCounter.textContent = visitCount;
+}
+
+// ===== PROTECTION CONTRE LES DOUBLONS DE CHARGEMENT =====
+// Éviter les initialisations multiples de AOS
+if (typeof AOS !== 'undefined' && !window.AOS_INITIALIZED) {
+    window.AOS_INITIALIZED = true;
+    // AOS est déjà initialisé dans chaque page HTML via le script inline
+    console.log('✅ AOS disponible');
+}

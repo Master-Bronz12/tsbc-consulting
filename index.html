@@ -12,7 +12,18 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="TSBC - The Society for Business Creativity" />
   <meta property="og:description" content="Expert Consultant en Ingénierie de Gouvernance, Stratégies Financières & Développement" />
+  <meta property="og:url" content="https://tsbc-consulting.onrender.com" />
+  <meta property="og:image" content="https://tsbc-consulting.onrender.com/images/logo.png" />
   <meta property="og:site_name" content="TSBC Consulting" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TSBC - The Society for Business Creativity" />
+  <meta name="twitter:description" content="Expert Consultant en Ingénierie de Gouvernance, Stratégies Financières et Développement" />
+  <meta name="twitter:image" content="https://tsbc-consulting.onrender.com/images/logo.png" />
+  
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -60,6 +71,7 @@
 <section class="hero-video">
     <video autoplay muted loop playsinline class="background-video">
         <source src="video/hero.mp4" type="video/mp4" />
+        <!-- Message de fallback si la vidéo ne se charge pas -->
         Votre navigateur ne supporte pas la vidéo.
     </video>
     <div class="overlay-content" data-aos="fade-up">
@@ -185,7 +197,7 @@
   </div>
   
   <div class="blog-container">
-    <div class="blog-card fade-in" data-aos="fade-up" data-aos-delay="100">
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
       <img src="images/MS-1.png" alt="Gouvernance moderne">
       <div class="blog-content">
         <h3>Les clés d'une gouvernance moderne et efficace</h3>
@@ -195,7 +207,7 @@
       </div>
     </div>
 
-    <div class="blog-card fade-in" data-aos="fade-up" data-aos-delay="200">
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
       <img src="images/strategie-financiere.jpg" alt="Stratégie financière">
       <div class="blog-content">
         <h3>Optimiser sa stratégie financière en période d'incertitude</h3>
@@ -205,7 +217,7 @@
       </div>
     </div>
 
-    <div class="blog-card fade-in" data-aos="fade-up" data-aos-delay="300">
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
       <img src="images/odd-roue-1.png" alt="Développement durable">
       <div class="blog-content">
         <h3>L'impact comme levier de performance</h3>
@@ -223,13 +235,13 @@
 <!-- ==================== FIN BLOG ==================== -->
 
 <!-- ==================== SECTION CTA ==================== -->
-<section class="cta-section fade-in">
+<section class="cta-section">
   <div class="cta-content" data-aos="fade-up">
     <h1>Prêt à transformer votre organisation ?</h1>
     <p>Discutons de vos enjeux et construisons ensemble la solution qui vous ressemble.</p>
     <div class="cta-buttons">
-      <a href="devis.html" class="btn btn-primary">Demander un devis gratuit</a>
-      <a href="tel:+2250707363020" class="btn btn-secondary">
+      <a href="devis.html" class="btn">Demander un devis gratuit</a>
+      <a href="tel:+2250707363020" class="btn btn-outline">
         <i class="fa-solid fa-phone"></i> +225 07 07 36 30 20
       </a>
     </div>
@@ -237,51 +249,23 @@
 </section>
 <!-- ==================== FIN CTA ==================== -->
 
-<section class="legal-badge" style="background: #f8f9fa; padding: 1rem; text-align: center; font-size: 0.8rem; color: #666;">
-    <p>SARL au capital de 1 000 000 FCFA - RCCM: CI-ABJ-2015-B-9521 - IDU: CI-2015-0000729 E</p>
-</section>
-
-<div class="page-counter" style="text-align: center; padding: 1rem; font-size: 0.8rem; color: #666;">
-    <i class="fa-regular fa-eye"></i> 
-    <span id="page-counter">Chargement...</span> visiteurs
-</div>
-
-<div style="text-align: center; padding: 1rem; font-size: 0.8rem; color: #666; background: #f8f9fa; margin-top: 2rem;">
-    <i class="fa-regular fa-eye"></i> 
-    <span id="visit-counter">Chargement...</span> visiteurs sur ce site
-</div>
-
-<script>
-// Compteur de visiteurs simple
-let visitCount = localStorage.getItem('tsbc_visits');
-if (visitCount === null) {
-    visitCount = Math.floor(Math.random() * 500) + 100;
-    localStorage.setItem('tsbc_visits', visitCount);
-} else {
-    visitCount = parseInt(visitCount) + 1;
-    localStorage.setItem('tsbc_visits', visitCount);
-}
-document.getElementById('visit-counter').textContent = visitCount;
-</script>
 <!-- ==================== FOOTER ==================== -->
 <footer class="footer">
   <div class="footer-container">
-    <!-- Colonne 1 : Logo & intro -->
     <div class="footer-col">
       <h2 class="footer-logo">TSBC</h2>
       <p class="footer-subtitle">The Society for Business Creativity</p>
       <p>Conseil en gouvernance et stratégies financières pour bâtir l'avenir avec confiance et innovation.</p>
-      <form class="newsletter-form" action="https://formspree.io/f/ton-id-formspree" method="POST">
-    <label for="newsletter-email">Newsletter</label>
-    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <input type="email" name="email" id="newsletter-email" placeholder="Votre adresse email" required style="flex: 1; padding: 10px; border-radius: 8px; border: none;">
-        <button type="submit" style="padding: 10px 20px;">S'abonner</button>
-    </div>
-    <small style="font-size: 0.7rem; opacity: 0.7;">Je ne spamme pas ! Je respecte votre vie privée.</small>
-</form>
+      <form class="newsletter-form" action="#" method="POST">
+        <label for="newsletter-email">Newsletter</label>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <input type="email" name="email" id="newsletter-email" placeholder="Votre adresse email" required style="flex: 1; padding: 10px; border-radius: 8px; border: none;">
+          <button type="submit" style="padding: 10px 20px;">S'abonner</button>
+        </div>
+        <small style="font-size: 0.7rem; opacity: 0.7;">Je ne spamme pas ! Je respecte votre vie privée.</small>
+      </form>
     </div>
 
-    <!-- Colonne 2 : Liens utiles -->
     <div class="footer-col">
       <h3>Navigation</h3>
       <ul>
@@ -296,7 +280,6 @@ document.getElementById('visit-counter').textContent = visitCount;
       </ul>
     </div>
 
-    <!-- Colonne 3 : Légal -->
     <div class="footer-col">
       <h3>Légal</h3>
       <ul>
@@ -306,19 +289,17 @@ document.getElementById('visit-counter').textContent = visitCount;
       </ul>
     </div>
 
-    <!-- Colonne 4 : Contact -->
     <div class="footer-col">
-    <h3>Contact</h3>
-    <p><i class="fa-solid fa-envelope"></i> tsbcafrique@yahoo.fr</p>
-    <p><i class="fa-solid fa-phone"></i> +225 07 07 36 30 20</p>
-    <p><i class="fa-solid fa-location-dot"></i> Abidjan Cocody Angré, Côte d'Ivoire</p>
-    <div class="footer-socials">
+      <h3>Contact</h3>
+      <p><i class="fa-solid fa-envelope"></i> tsbcafrique@yahoo.fr</p>
+      <p><i class="fa-solid fa-phone"></i> +225 07 07 36 30 20</p>
+      <p><i class="fa-solid fa-location-dot"></i> Abidjan Cocody Angré, Côte d'Ivoire</p>
+      <div class="footer-socials">
         <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
         <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
         <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-    </div>
-</div>
+      </div>
     </div>
   </div>
 
@@ -334,39 +315,38 @@ document.getElementById('visit-counter').textContent = visitCount;
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/script.js"></script>
 
-<!-- Initialisation AOS -->
 <script>
+  // Initialisation AOS
   AOS.init({
     duration: 800,
     once: true,
     offset: 100
   });
+
+  // Graphique Chart.js
+  var canvas = document.getElementById('financeChart');
+  if (canvas && typeof Chart !== 'undefined') {
+    new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+        datasets: [{
+          label: 'Croissance accompagnée (%)',
+          data: [5, 7, 12, 18, 25, 32, 42],
+          borderColor: '#d69e2e',
+          backgroundColor: 'rgba(214, 158, 46, 0.1)',
+          borderWidth: 3,
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true
+      }
+    });
+  }
 </script>
-<!-- Start of Tawk.to Script -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/ton-id/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!-- End of Tawk.to Script -->
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
