@@ -112,6 +112,26 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+        
+        // Afficher/masquer le bouton back to top selon le scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        });
+        
+        // Initialiser l'état
+        if (window.scrollY > 300) {
+            backToTop.style.opacity = '1';
+            backToTop.style.visibility = 'visible';
+        } else {
+            backToTop.style.opacity = '0';
+            backToTop.style.visibility = 'hidden';
+        }
     }
     
     // ===== NEWSLETTER =====
@@ -279,24 +299,49 @@ if (document.readyState === 'loading') {
     initChart();
 }
 
-// ===== GESTION DES VIDÉOS (optionnel) =====
-// Détecter si l'utilisateur est sur mobile pour désactiver l'autoplay des vidéos
-function checkMobileVideo() {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+// ===== GESTION DES VIDÉOS =====
+// Version améliorée pour mobile
+function handleVideo() {
     const videos = document.querySelectorAll('.background-video');
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    if (isMobile && videos.length) {
-        videos.forEach(function(video) {
-            video.pause();
-            video.removeAttribute('autoplay');
-            console.log('📱 Vidéo désactivée sur mobile');
+    videos.forEach(function(video) {
+        // Gérer l'autoplay sur mobile
+        if (isMobile) {
+            video.setAttribute('playsinline', '');
+            video.load();
+            
+            // Tenter de jouer la vidéo
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function() {
+                    console.log('📱 Autoplay bloqué sur mobile, affichage du poster');
+                    video.classList.add('video-error');
+                });
+            }
+        }
+        
+        // Gérer les erreurs de chargement vidéo
+        video.addEventListener('error', function() {
+            console.log('❌ Erreur chargement vidéo');
+            video.classList.add('video-error');
+            // Afficher l'image de fallback si disponible
+            const fallbackImg = video.querySelector('img');
+            if (fallbackImg) {
+                fallbackImg.style.display = 'block';
+            }
         });
-    }
+    });
 }
 
-checkMobileVideo();
+// Exécuter après chargement
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', handleVideo);
+} else {
+    handleVideo();
+}
 
-// ===== COMPTEUR DE VISITEURS SIMPLE =====
+// ===== COMPTEUR DE VISITEURS =====
 const visitCounter = document.getElementById('visit-counter');
 if (visitCounter) {
     let visitCount = localStorage.getItem('tsbc_visits');
@@ -311,10 +356,30 @@ if (visitCounter) {
     visitCounter.textContent = visitCount;
 }
 
+// ===== PAGE VIEW TRACKING (optionnel) =====
+// Envoyer une vue à Google Analytics si configuré
+if (typeof gtag !== 'undefined') {
+    gtag('config', 'GA_MEASUREMENT_ID', {
+        'page_title': document.title,
+        'page_location': window.location.href
+    });
+}
+
 // ===== PROTECTION CONTRE LES DOUBLONS DE CHARGEMENT =====
 // Éviter les initialisations multiples de AOS
 if (typeof AOS !== 'undefined' && !window.AOS_INITIALIZED) {
     window.AOS_INITIALIZED = true;
     // AOS est déjà initialisé dans chaque page HTML via le script inline
     console.log('✅ AOS disponible');
+}
+
+// ===== DÉTECTION DE CONNEXION LENTE =====
+// Ajouter une classe au body si la connexion est lente
+if ('connection' in navigator && navigator.connection) {
+    if (navigator.connection.saveData || 
+        (navigator.connection.effectiveType && 
+         navigator.connection.effectiveType.includes('2g'))) {
+        document.body.classList.add('slow-connection');
+        console.log('📡 Connexion lente détectée, mode économie activé');
+    }
 }
